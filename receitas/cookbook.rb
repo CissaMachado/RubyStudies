@@ -37,9 +37,18 @@ def imprime_todas_receitas(r)
     puts "#{receita[:nome]} - #{receita[:tipo]}"
   end
 
-  if receitas.empty?
+  if r.empty?
     puts "Nenhuma receitas está cadstrada no sistema!" 
   end
+end
+
+def buscar_receitas (receitas)
+  puts "Insira o nome da receita você deseja buscar: "
+  receita_desejada = gets.chomp()
+
+  busca_receita = receitas.find {|receita| receita[:nome] == receita_desejada }
+
+    puts "Receita encontrada: #{busca_receita[:nome]}"
 end
 
 Bem_vindo()
@@ -54,6 +63,7 @@ while(opcao != SAIR) do
       elsif (opcao == VER_TODAS)
         imprime_todas_receitas(receitas)
         elsif(opcao == BUSCAR_RECEITAS)
+          buscar_receitas(receitas)
         else
           puts "Opção Inválida"
     end
