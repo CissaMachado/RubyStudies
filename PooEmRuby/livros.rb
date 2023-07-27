@@ -1,20 +1,27 @@
 class Livro
+  attr_reader :titulo, :preco, :ano_lancamento
 
-    attr_accessor :titulo, :ano_de_lancamento, :tipo
-    
-    def initialize(titulo_do_livro)
-      @titulo = titulo_do_livro
-    end
+  def initialize(titulo, preco, ano_lancamento)
+    @titulo = titulo
 
-    def nome_livro
-        @titulo
-    end    
+    @ano_lancamento = ano_lancamento
 
-    def livros_id 
-        puts "O id do livro é #{self.object_id}"
-    end
+    @preco = calcula_preco(preco)
+  end
 end
 
-l = Livro.new("Hamlet")
-puts l.nome_livro
-l.livros_id
+def calcula_preco(preco)
+  if @ano_lancamento < 2000
+    preco *= 0.7
+  else
+    preco
+  end
+end
+
+def livro_para_newsletter(livro)
+  return unless livro.ano_lancamento < 2000
+
+  puts 'Newsletter'
+  puts livro.titulo
+  puts livro.preco
+end

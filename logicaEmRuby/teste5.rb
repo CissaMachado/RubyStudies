@@ -1,15 +1,15 @@
-#estruturas de repetição em ruby
+# estruturas de repetição em ruby
 
-#while
+# while
 i = 0
 num = 5
 
-while i < num do 
-    puts "Contando #{i}" 
-    i += 1
+while i < num
+  puts "Contando #{i}"
+  i += 1
 end
 
-#each
+# each
 (4..10).each do |i|
-    puts "O valor lido foi #{i}"
+  puts "O valor lido foi #{i}"
 end
